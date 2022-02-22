@@ -637,33 +637,98 @@ rmdir -Force
 
 119: create a file called appreciate.txt
 
+ni appreciate.txt
+
 120: create two directories degree and speculate and move into speculate
+
+mkdir degree
+mkdir speculate
+cd speculate
 
 121: create a file called terminal.txt and immediately delete it
 
+ni terminal.txt
+rm terminal.txt
+
 122: move two folders up
+
+cd ./../..
 
 123: move one level up
 
+cd ./..
+
 124: delete the last file you created
+
+rmdir degree
 
 125: write something in a file called speculate.txt
 
+echo "something" >> speculate.txt
+
 126: write something in a file called advice.txt
+
+echo "something" >> advice.txt
 
 127: create a directory regret and move into the directory
 
+mkdir regret
+cd regret
+
 128: delete the last folder you created
+
+rmdir speculate
 
 129: write something in a file called depression.txt
 
+echo "something" >> depression.txt
+
 130: create a file called salvation.txt. Put the text 'ditch banish identity needle appreciate' in it and copy it so there is also a hill.txt with same content
+
+ni salvation.txt
+echo "ditch banish identity needle appreciate" >> salvation.txt
+cp salvation.txt hill.txt
 
 131: output the content of any file in the directory
 
+cat hill.txt
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3> cat hill.txt
+ditch banish identity needle appreciate
+
 132: output what's in the directory
 
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3> ls
+
+
+    Directory: C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        09/02/2022     14:47                excuse
+d-----        09/02/2022     13:21                excuse.txt
+d-----        21/02/2022     13:54                experienced
+d-----        09/02/2022     13:24                nerve
+d-----        09/02/2022     14:35                new1
+d-----        09/02/2022     13:49                pioneer
+d-----        09/02/2022     14:33                pray.txt
+d-----        21/02/2022     13:58                recommend
+d-----        09/02/2022     13:53                regret
+-a----        22/02/2022     09:34              0 appreciate.txt
+-a----        09/02/2022     13:15             68 degree.txt
+-a----        22/02/2022     09:46             84 hill.txt
+-a----        09/02/2022     13:13             92 rain.txt
+-a----        09/02/2022     13:19             68 recession.txt
+-a----        09/02/2022     13:13             92 rider.txt
+-a----        22/02/2022     09:46             84 salvation.txt
+-a----        09/02/2022     13:40            134 shallow.txt
+-a----        22/02/2022     09:39             24 speculate.txt
+-a----        09/02/2022     13:15             68 support.txt
+
+
 133: echo 'correspondence cousin interference degree shallow' into the file
+
+echo "correspondence cousin interference degree shallow" >> the.txt
 
 134: open a file in the terminal and see the content
 
