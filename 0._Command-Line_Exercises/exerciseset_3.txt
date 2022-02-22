@@ -550,37 +550,90 @@ echo "abortion cater architecture rider rider" >> on.txt
 
 102: output the sizes of the files in the directory
 
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3> $file = '.\experienced\'
+>> Write-Host((Get-Item $file).length/1KB)
+>> Write-Host((Get-Item $file).length/1MB)
+>> Write-Host((Get-Item $file).length/1GB)
+0.0009765625
+9.5367431640625E-07
+9.31322574615479E-10
+
 103: open a file in the terminal and see the content
+
+start abortion.txt
 
 104: delete the last file you created
 
+rmdir on.txt
+
 105: if there are any directories in the folder then move inside any one of them
+
+cd .
 
 106: move one level up
 
+cd ./..
+
 107: create two directories stock and recommend and move into recommend
+
+mkdir stock
+mkdir recommend
+cd recommend
 
 108: create two directories honor and experienced and move into experienced
 
+mkdir honor
+mkdir experience
+cd experience
+
 109: create a directory nerve and move into the directory
+
+mkdir nerve
+cd nerve
 
 110: output who the active user is
 
+$env:UserName
+Lenovo ThinkPad
+
 111: echo 'shallow degree excuse medal ethics' into the file
+
+echo 'shallow degree excuse medal ethics' >> file.txt
 
 112: move one level up
 
+cd ./..
+
 113: move one level up
+
+cd ./..
 
 114: output the sizes of the files in the directory
 
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recommend> $file = '.\experience\'
+>> Write-Host((Get-Item $file).length/1KB)
+>> Write-Host((Get-Item $file).length/1MB)
+>> Write-Host((Get-Item $file).length/1GB)
+0.0009765625
+9.5367431640625E-07
+9.31322574615479E-10
+
 115: create a file called difficulty.txt and rename it so that it's called ditch.txt instead. Hint: This should be done in 2 commands
+
+mkdir difficulty.txt
+Item-Rename difficulty -NewName "ditch.txt"
 
 116: output hidden files
 
+ls -Force -File
+
 117: create a file called identity.txt
 
+mkdir identity.txt
+
 118: delete the last folder you created
+
+rmdir -Force
 
 119: create a file called appreciate.txt
 
