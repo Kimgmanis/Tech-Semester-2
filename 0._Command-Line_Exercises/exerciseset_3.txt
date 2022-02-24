@@ -351,7 +351,7 @@ ls -Force -File
 64: create a file called stock.txt and rename it so that it's called proportion.txt instead. Hint: This should be done in 2 commands
 
 mkdir stock.txt
-Item-Rename stock -NewName "proportion.txt"
+Rename-Item stock -NewName "proportion.txt"
 
 65: create a directory excuse and move into the directory
 
@@ -449,7 +449,7 @@ d-----        20/08/2021     09:28                Zoom
 80: create a file called plane.txt and rename it so that it's called interference.txt instead. Hint: This should be done in 2 commands
 
 mkdir place.txt
-Item-Rename plane.txt -NewName "Interference.txt"
+Rename-Item plane.txt -NewName "Interference.txt"
 
 81: create a file called identity.txt. Put the text 'proportion advice hill pray rider' in it and copy it so there is also a excuse.txt with same content
 
@@ -517,7 +517,7 @@ echo "identity nerve nerve architecture pen" >> shot.txt
 95: create a file called interference.txt and rename it so that it's called evaluate.txt instead. Hint: This should be done in 2 commands
 
 mkdir interference.txt
-Item-Rename interference.txt -NewName "evaluate.txt"
+Rename-Item interference.txt -NewName "evaluate.txt"
 
 96: create a directory correspondence and move into the directory
 
@@ -621,7 +621,7 @@ PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recommend> $file = '.\experi
 115: create a file called difficulty.txt and rename it so that it's called ditch.txt instead. Hint: This should be done in 2 commands
 
 mkdir difficulty.txt
-Item-Rename difficulty -NewName "ditch.txt"
+Rename-Item difficulty -NewName "ditch.txt"
 
 116: output hidden files
 
@@ -732,234 +732,870 @@ echo "correspondence cousin interference degree shallow" >> the.txt
 
 134: open a file in the terminal and see the content
 
+start the.txt
+
 135: output what's in the directory
+
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3> ls
+
+
+    Directory: C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        09/02/2022     14:47                excuse
+d-----        09/02/2022     13:21                excuse.txt
+d-----        21/02/2022     13:54                experienced
+d-----        09/02/2022     13:24                nerve
+d-----        09/02/2022     14:35                new1
+d-----        09/02/2022     13:49                pioneer
+d-----        09/02/2022     14:33                pray.txt
+d-----        21/02/2022     13:58                recommend
+d-----        09/02/2022     13:53                regret
+-a----        22/02/2022     09:34              0 appreciate.txt
+-a----        09/02/2022     13:15             68 degree.txt
+-a----        22/02/2022     09:46             84 hill.txt
+-a----        09/02/2022     13:13             92 rain.txt
+-a----        09/02/2022     13:19             68 recession.txt
+-a----        09/02/2022     13:13             92 rider.txt
+-a----        22/02/2022     09:46             84 salvation.txt
+-a----        09/02/2022     13:40            134 shallow.txt
+-a----        22/02/2022     09:39             24 speculate.txt
+-a----        09/02/2022     13:15             68 support.txt
+-a----        22/02/2022     09:49            104 the.txt
 
 136: move one level up
 
+cd ./..
+
 137: delete the last file you created
+
+rm .\Exerciseset_3\the.txt
 
 138: output the content of any file in the directory
 
+PS C:\Users\Lenovo ThinkPad\Documents> cat .\Exerciseset_3\degree.txt
+panel sister ditch panel needle
+
 139: output hidden files
+
+PS C:\Users\Lenovo ThinkPad\Documents> dir -Force
+
+
+    Directory: C:\Users\Lenovo ThinkPad\Documents
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        09/05/2020     15:23                Audacity
+d-----        22/08/2021     20:44                Backup
+d-----        24/01/2020     09:47                Custom Office Templates
+d-----        13/01/2022     05:16                Dolphin Emulator
+d-----        16/01/2020     12:14                Downloads
+d-----        22/02/2022     09:49                Exerciseset_3
+d-----        22/08/2021     20:45                My Games
+d--hsl        31/10/2021     14:24                My Music
+d--hsl        31/10/2021     14:24                My Pictures
+d-----        21/02/2020     09:46                My TI-Nspire CX CAS Premium Teacher Software
+d-----        11/04/2020     12:32                My TI-Nspire CX Premium Teacher Software
+d--hsl        31/10/2021     14:24                My Videos
+d-----        04/05/2020     10:15                Outlook Files
+d-----        24/08/2020     10:54                Rent
+d-----        11/04/2020     18:48                TI-Nspire CX
+d-----        01/03/2021     17:30                University
+d-----        05/12/2020     12:42                Visual Studio 2017
+d-----        28/01/2021     12:47                Visual Studio 2019
+d-----        31/01/2022     11:52                VPProjects
+d-----        20/08/2021     09:28                Zoom
+-a-hs-        31/10/2021     15:58            402 desktop.ini
+-a----        22/11/2021     09:13         383590 ใบคำร้องทำพาสปอร์ต Signed.pdf
+-a----        22/11/2021     08:54         123895 ใบคำร้องทำพาสปอร์ต.pdf
 
 140: output what's in the directory
 
+PS C:\Users\Lenovo ThinkPad\Documents> ls
+
+
+    Directory: C:\Users\Lenovo ThinkPad\Documents
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        09/05/2020     15:23                Audacity
+d-----        22/08/2021     20:44                Backup
+d-----        24/01/2020     09:47                Custom Office Templates
+d-----        13/01/2022     05:16                Dolphin Emulator
+d-----        16/01/2020     12:14                Downloads
+d-----        22/02/2022     11:00                Exerciseset_3
+d-----        22/08/2021     20:45                My Games
+d-----        21/02/2020     09:46                My TI-Nspire CX CAS Premium Teacher Software
+d-----        11/04/2020     12:32                My TI-Nspire CX Premium Teacher Software
+d-----        04/05/2020     10:15                Outlook Files
+d-----        24/08/2020     10:54                Rent
+d-----        11/04/2020     18:48                TI-Nspire CX
+d-----        01/03/2021     17:30                University
+d-----        05/12/2020     12:42                Visual Studio 2017
+d-----        28/01/2021     12:47                Visual Studio 2019
+d-----        31/01/2022     11:52                VPProjects
+d-----        20/08/2021     09:28                Zoom
+-a----        22/11/2021     09:13         383590 ใบคำร้องทำพาสปอร์ต Signed.pdf
+-a----        22/11/2021     08:54         123895 ใบคำร้องทำพาสปอร์ต.pdf
+
 141: output the content of any file in the directory
+
+PS C:\Users\Lenovo ThinkPad\Documents> cat .\Exerciseset_3\hill.txt
+ditch banish identity needle appreciate
 
 142: delete the last folder you created
 
+rmdir .\Exerciseset_3\regret\
+
 143: output the content of any file in the directory
+
+PS C:\Users\Lenovo ThinkPad\Documents> cat .\Exerciseset_3\support.txt
+panel sister ditch panel needle
 
 144: open a file in the terminal and see the content
 
+PS C:\Users\Lenovo ThinkPad\Documents> start .\Exerciseset_3\support.txt
 145: write something in a file called difficulty.txt
 
 146: output the sizes of the files in the directory
 
+PS C:\Users\Lenovo ThinkPad\Documents> start .\Exerciseset_3\support.txt
+PS C:\Users\Lenovo ThinkPad\Documents> $file = '.\Exerciseset_3\'
+>> Write-Host((Get-Item $file).length/1KB)
+>> Write-Host((Get-Item $file).length/1MB)
+>> Write-Host((Get-Item $file).length/1GB)
+0.0009765625
+9.5367431640625E-07
+9.31322574615479E-10
+
 147: output hidden files
+
+dir -Force
+
+PS C:\Users\Lenovo ThinkPad\Documents> dir -force
+
+
+    Directory: C:\Users\Lenovo ThinkPad\Documents
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        09/05/2020     15:23                Audacity
+d-----        22/08/2021     20:44                Backup
+d-----        24/01/2020     09:47                Custom Office Templates
+d-----        13/01/2022     05:16                Dolphin Emulator
+d-----        16/01/2020     12:14                Downloads
+d-----        22/02/2022     11:05                Exerciseset_3
+d-----        22/08/2021     20:45                My Games
+d--hsl        31/10/2021     14:24                My Music
+d--hsl        31/10/2021     14:24                My Pictures
+d-----        21/02/2020     09:46                My TI-Nspire CX CAS Premium Teacher Software
+d-----        11/04/2020     12:32                My TI-Nspire CX Premium Teacher Software
+d--hsl        31/10/2021     14:24                My Videos
+d-----        04/05/2020     10:15                Outlook Files
+d-----        24/08/2020     10:54                Rent
+d-----        11/04/2020     18:48                TI-Nspire CX
+d-----        01/03/2021     17:30                University
+d-----        05/12/2020     12:42                Visual Studio 2017
+d-----        28/01/2021     12:47                Visual Studio 2019
+d-----        31/01/2022     11:52                VPProjects
+d-----        20/08/2021     09:28                Zoom
+-a-hs-        31/10/2021     15:58            402 desktop.ini
+-a----        22/11/2021     09:13         383590 ใบคำร้องทำพาสปอร์ต Signed.pdf
+-a----        22/11/2021     08:54         123895 ใบคำร้องทำพาสปอร์ต.pdf
 
 148: open a file in the terminal and see the content
 
+ start .\Exerciseset_3\salvation.txt
+
 149: delete the last file you created
+
+rm .\Exerciseset_3\advice.txt
 
 150: output the full path you are on
 
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3>
+
 151: create a file called shot.txt
+
+ni shot.txt
 
 152: create a file called advice.txt. Put the text 'proportion experienced proportion depression support' in it and copy it so there is also a advice.txt with same content
 
+ni advice.txt
+echo "proportion experienced proportion depression support" >> advice.txt
+cp advice.txt aadvice.txt
+
 153: create a file called terminal.txt
+
+ni terminal.txt
 
 154: output the sizes of the files in the directory
 
+PS C:\Users\Lenovo ThinkPad\Documents> $file = '.\Exerciseset_3\'
+>> Write-Host((Get-Item $file).length/1KB)
+>> Write-Host((Get-Item $file).length/1MB)
+>> Write-Host((Get-Item $file).length/1GB)
+0.0009765625
+9.5367431640625E-07
+9.31322574615479E-10
+
 155: output what's in the directory
+
+Directory: C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        09/02/2022     14:47                excuse
+d-----        09/02/2022     13:21                excuse.txt
+d-----        21/02/2022     13:54                experienced
+d-----        09/02/2022     13:24                nerve
+d-----        09/02/2022     14:35                new1
+d-----        09/02/2022     13:49                pioneer
+d-----        09/02/2022     14:33                pray.txt
+d-----        21/02/2022     13:58                recommend
+-a----        22/02/2022     11:13            110 aadvice.txt
+-a----        22/02/2022     11:13            110 advice.txt
+-a----        22/02/2022     09:34              0 appreciate.txt
+-a----        09/02/2022     13:15             68 degree.txt
+-a----        22/02/2022     09:46             84 hill.txt
+-a----        09/02/2022     13:13             92 rain.txt
+-a----        09/02/2022     13:19             68 recession.txt
+-a----        09/02/2022     13:13             92 rider.txt
+-a----        22/02/2022     09:46             84 salvation.txt
+-a----        09/02/2022     13:40            134 shallow.txt
+-a----        22/02/2022     11:12              0 shot
+-a----        22/02/2022     09:39             24 speculate.txt
+-a----        09/02/2022     13:15             68 support.txt
+-a----        22/02/2022     11:14              0 terminal.txt
 
 156: create a file called medal.txt and rename it so that it's called honor.txt instead. Hint: This should be done in 2 commands
 
+ni medal.txt
+Rename-Item medal.txt -NewName "honor.txt"
+
 157: delete the last file you created
+
+rm honor.txt
 
 158: create a file called on.txt and rename it so that it's called advice.txt instead. Hint: This should be done in 2 commands
 
+ni on.txt
+Rename-Item on.txt -NewName "advice.txt"
+
 159: output hidden files
+
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3> ls -force
+
+
+             Directory: C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3
+
+
+         Mode                 LastWriteTime         Length Name
+         ----                 -------------         ------ ----
+         d-----        09/02/2022     14:47                excuse
+         d-----        09/02/2022     13:21                excuse.txt
+         d-----        21/02/2022     13:54                experienced
+         d-----        09/02/2022     13:24                nerve
+         d-----        09/02/2022     14:35                new1
+         d-----        09/02/2022     13:49                pioneer
+         d-----        09/02/2022     14:33                pray.txt
+         d-----        21/02/2022     13:58                recommend
+         -a----        22/02/2022     11:13            110 aadvice.txt
+         -a----        22/02/2022     11:23              0 advice.txt
+         -a----        22/02/2022     09:34              0 appreciate.txt
+         -a----        09/02/2022     13:15             68 degree.txt
+         -a----        22/02/2022     09:46             84 hill.txt
+         -a----        09/02/2022     13:13             92 rain.txt
+         -a----        09/02/2022     13:19             68 recession.txt
+         -a----        09/02/2022     13:13             92 rider.txt
+         -a----        22/02/2022     09:46             84 salvation.txt
+         -a----        09/02/2022     13:40            134 shallow.txt
+         -a----        22/02/2022     11:12              0 shot
+         -a----        22/02/2022     09:39             24 speculate.txt
+         -a----        09/02/2022     13:15             68 support.txt
+         -a----        22/02/2022     11:14              0 terminal.txt
 
 160: output hidden files
 
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3> ls -force
+
+
+    Directory: C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        09/02/2022     14:47                excuse
+d-----        09/02/2022     13:21                excuse.txt
+d-----        21/02/2022     13:54                experienced
+d-----        09/02/2022     13:24                nerve
+d-----        09/02/2022     14:35                new1
+d-----        09/02/2022     13:49                pioneer
+d-----        09/02/2022     14:33                pray.txt
+d-----        21/02/2022     13:58                recommend
+-a----        22/02/2022     11:13            110 aadvice.txt
+-a----        22/02/2022     11:23              0 advice.txt
+-a----        22/02/2022     09:34              0 appreciate.txt
+-a----        09/02/2022     13:15             68 degree.txt
+-a----        22/02/2022     09:46             84 hill.txt
+-a----        09/02/2022     13:13             92 rain.txt
+-a----        09/02/2022     13:19             68 recession.txt
+-a----        09/02/2022     13:13             92 rider.txt
+-a----        22/02/2022     09:46             84 salvation.txt
+-a----        09/02/2022     13:40            134 shallow.txt
+-a----        22/02/2022     11:12              0 shot
+-a----        22/02/2022     09:39             24 speculate.txt
+-a----        09/02/2022     13:15             68 support.txt
+-a----        22/02/2022     11:14              0 terminal.txt
+
 161: delete the last file you created
+
+rm advice.txt
 
 162: output the full path you are on
 
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3>
+
 163: move one level up
+
+cd ./..
 
 164: output the content of any file in the directory
 
+PS C:\Users\Lenovo ThinkPad\Documents> cat .\Exerciseset_3\degree.txt
+panel sister ditch panel needle
+
 165: output who the active user is
+
+PS C:\Users\Lenovo ThinkPad\Documents> $env:UserName
+Lenovo ThinkPad
 
 166: echo 'recession rain excuse evaluate on' into the file
 
+echo "recession rain excuse evaluate on" >> advice.txt
+
 167: output the full path you are on
+
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3>
 
 168: write something in a file called surprise.txt
 
+echo "something" >> surprise.txt
+
 169: output hidden files
+
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3> ls -force
+
+
+    Directory: C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        09/02/2022     14:47                excuse
+d-----        09/02/2022     13:21                excuse.txt
+d-----        21/02/2022     13:54                experienced
+d-----        09/02/2022     13:24                nerve
+d-----        09/02/2022     14:35                new1
+d-----        09/02/2022     13:49                pioneer
+d-----        09/02/2022     14:33                pray.txt
+d-----        21/02/2022     13:58                recommend
+-a----        22/02/2022     11:13            110 aadvice.txt
+-a----        22/02/2022     11:28             72 advice.txt
+-a----        22/02/2022     09:34              0 appreciate.txt
+-a----        09/02/2022     13:15             68 degree.txt
+-a----        22/02/2022     09:46             84 hill.txt
+-a----        09/02/2022     13:13             92 rain.txt
+-a----        09/02/2022     13:19             68 recession.txt
+-a----        09/02/2022     13:13             92 rider.txt
+-a----        22/02/2022     09:46             84 salvation.txt
+-a----        09/02/2022     13:40            134 shallow.txt
+-a----        22/02/2022     11:12              0 shot
+-a----        22/02/2022     09:39             24 speculate.txt
+-a----        09/02/2022     13:15             68 support.txt
+-a----        22/02/2022     11:29             24 surprise.txt
+-a----        22/02/2022     11:14              0 terminal.txt
 
 170: output who the active user is
 
+PS C:\Users\Lenovo ThinkPad\Documents> $env:UserName
+Lenovo ThinkPad
+
 171: create a file called advantage.txt and rename it so that it's called panel.txt instead. Hint: This should be done in 2 commands
+
+ni advantage.txt
+Rename-Item advantage.txt -NewName "panel.txt"
 
 172: delete the last file you created
 
+rm panel.txt
+
 173: output the content of any file in the directory
+
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3> cat aadvice.txt
+proportion experienced proportion depression support
 
 174: move two folders up
 
+cd ./../..
+
 175: move two folders up
+
+cd ./../..
 
 176: move one level up
 
+cd ./..
+
 177: delete the last file you created
+
+PS C:\> rm '.\Users\Lenovo ThinkPad\Documents\Exerciseset_3\surprise.txt'
 
 178: output the sizes of the files in the directory
 
+PS C:\Users\Lenovo ThinkPad\Documents> Function Format-FileSize() {
+>> Param ([int]$size)
+>> If ($size -gt 1TB) {[string]::Format("{0:0.00} TB", $size / 1TB)}
+>> ElseIf ($size -gt 1GB) {[string]::Format("{0:0.00} GB", $size / 1GB)}
+>> ElseIf ($size -gt 1MB) {[string]::Format("{0:0.00} MB", $size / 1MB)}
+>> ElseIf ($size -gt 1KB) {[string]::Format("{0:0.00} kB", $size / 1KB)}
+>> ElseIf ($size -gt 0) {[string]::Format("{0:0.00} B", $size)}
+>> Else {""}
+>> }
+>> $file = '.\Exerciseset_3\'
+>> $size=Format-FileSize((Get-Item $file).length)
+>> Write-Host($size)
+1.00 B
+
 179: create a directory recession and move into the directory
+
+mkdir recession
+cd recession
 
 180: create a file called recommend.txt. Put the text 'identity interference recommend shot shallow' in it and copy it so there is also a ethics.txt with same content
 
+ni recommend.txt
+echo "identity interference recommend shot shallow" >> recommend.txt
+echo "identity interference recommend shot shallow" >> aethics.txt
+
 181: output the sizes of the files in the directory
+
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3> $file = '.\recession\'
+>> Write-Host((Get-Item $file).length/1KB)
+>> Write-Host((Get-Item $file).length/1MB)
+>> Write-Host((Get-Item $file).length/1GB)
+0.0009765625
+9.5367431640625E-07
+9.31322574615479E-10
 
 182: output what's in the directory
 
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession> ls
+
+
+    Directory: C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        22/02/2022     12:47             94 aethics.txt
+-a----        22/02/2022     12:44             94 recommend.txt
+
+
 183: if there are any directories in the folder then move inside any one of them
+
+cd.
+
+there are no directories in the folder.
 
 184: create a file called stock.txt. Put the text 'appreciate advantage recommend recession ditch' in it and copy it so there is also a salvation.txt with same content
 
+ni stock.txt
+echo "appreciate advantage recommend recession ditch" >> stock.txt
+echo "appreciate advantage recommend recession ditch" >> salvation.txt
+
 185: output hidden files
+
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession> ls -force
+
+
+    Directory: C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        22/02/2022     12:47             94 aethics.txt
+-a----        22/02/2022     12:44             94 recommend.txt
+-a----        22/02/2022     12:53             98 salvation.txt
+-a----        22/02/2022     12:53             98 stock.txt
+
 
 186: output hidden files
 
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession> ls -force
+
+
+    Directory: C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        22/02/2022     12:47             94 aethics.txt
+-a----        22/02/2022     12:44             94 recommend.txt
+-a----        22/02/2022     12:53             98 salvation.txt
+-a----        22/02/2022     12:53             98 stock.txt
+
+
 187: create a file called beat.txt
+
+ni beat.txt
 
 188: open a file in the terminal and see the content
 
+start beat.txt
+
 189: echo 'relative proportion speculate recession experienced' into the file
+
+echo "relative proportion speculate recession experienced" >> beat.txt
 
 190: create a file called relative.txt
 
+ni relative.txt
+
 191: delete the last file you created
+
+rm relative.txt
 
 192: create a file called needle.txt
 
+ni needle.txt
+
 193: create a file called relative.txt. Put the text 'difficulty pioneer on advice difficulty' in it and copy it so there is also a rain.txt with same content
+
+ni relative.txt
+echo "difficulty pioneer on advice difficulty" >> relative.txt
+echo "difficulty pioneer on advice difficulty" >> rain.txt
 
 194: output who the active user is
 
+PS C:\Users\Lenovo ThinkPad\Documents> $env:UserName
+Lenovo ThinkPad
+
 195: create a file called needle.txt and rename it so that it's called banish.txt instead. Hint: This should be done in 2 commands
+
+ni needle.txt
+Rename-Item needle.txt -NewName "banish.txt"
 
 196: output the content of any file in the directory
 
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession> cat stock.txt
+appreciate advantage recommend recession ditch
+
 197: create a file called sister.txt and rename it so that it's called recommend.txt instead. Hint: This should be done in 2 commands
+
+ni sister.txt
+Rename-item sister.txt -NewName "recommend.txt"
 
 198: delete the last file you created
 
+rm recommend.txt
+
 199: if there are any directories in the folder then move inside any one of them
+
+cd .
+There are no other directories in the folder
 
 200: output the content of any file in the directory
 
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession> cat salvation.txt
+appreciate advantage recommend recession ditch
+
 201: open a file in the terminal and see the content
+
+start salvation.txt
 
 202: create a file called sister.txt and rename it so that it's called interference.txt instead. Hint: This should be done in 2 commands
 
+ni sister.txt
+Rename-Item sister.txt -NewName "interference.txt"
+
 203: output what's in the directory
+
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession> ls
+
+
+    Directory: C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        22/02/2022     12:47             94 aethics.txt
+-a----        24/02/2022     08:58              0 interference.txt
+-a----        22/02/2022     12:53             98 salvation.txt
+-a----        22/02/2022     12:53             98 stock.txt
 
 204: create a file called correspondence.txt. Put the text 'architecture appreciate salvation proportion recommend' in it and copy it so there is also a difficulty.txt with same content
 
+echo "architecture appreciate salvation proportion recommend" >> correspondence.txt
+echo "architecture appreciate salvation proportion recommend" >> difficulty.txt
+
 205: create a directory recession and move into the directory
+
+mkdir recession
 
 206: move one level up
 
+cd ./..
+
 207: write something in a file called experienced.txt
+
+echo "something" >> experienced.txt
 
 208: create a file called shot.txt and rename it so that it's called appreciate.txt instead. Hint: This should be done in 2 commands
 
+ni shot.txt
+Rename-Item shot.txt -NewName "appreciate.txt"
+
 209: output the content of any file in the directory
+
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession> cat aethics.txt
+identity interference recommend shot shallow
 
 210: output hidden files
 
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession> ls -force
+
+
+    Directory: C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        24/02/2022     09:12                recession
+-a----        22/02/2022     12:47             94 aethics.txt
+-a----        24/02/2022     08:58              0 interference.txt
+-a----        22/02/2022     12:53             98 salvation.txt
+-a----        22/02/2022     12:53             98 stock.txt
+
 211: create two directories correspondence and sister and move into sister
+
+mkdir correspondence
+mkdir sister
+cd sister
 
 212: output the content of any file in the directory
 
+ls
+Directory is empty
+
 213: if there are any directories in the folder then move inside any one of them
+
+cd .
+Directory is empty
 
 214: write something in a file called pen.txt
 
+echo "something.txt" >> pen.txt
+
 215: open a file in the terminal and see the content
+
+start pen.txt
 
 216: create a file called shot.txt. Put the text 'ditch bay correspondence terminal cater' in it and copy it so there is also a ditch.txt with same content
 
+echo "ditch bay correspondence terminal cater" >> shot.txt
+echo "ditch bay correspondence terminal cater" >> ditch.txt
+
 217: echo 'responsibility hill speculate architecture excuse' into the file
+
+echo "responsibility hill speculate architecture excuse" >> shot.txt
 
 218: output the sizes of the files in the directory
 
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession> $file = 'Sister'
+>> Write-Host((Get-Item $file).length/1KB)
+>> Write-Host((Get-Item $file).length/1MB)
+>> Write-Host((Get-Item $file).length/1GB)
+0.0009765625
+9.5367431640625E-07
+9.31322574615479E-10
+
 219: output what's in the directory
+
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession\sister> ls
+
+
+    Directory: C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession\sister
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        24/02/2022     09:23             84 ditch.txt
+-a----        24/02/2022     09:22             32 pen.txt
+-a----        24/02/2022     09:23            186 shot.txt
 
 220: create two directories pray and medal and move into medal
 
+mkdir pray
+mkdir medal
+cd medal
+
 221: create a file called proportion.txt and immediately delete it
+
+ni proportion.txt
+rm proportion.txt
 
 222: open a file in the terminal and see the content
 
+cd ./..
+start ditch.txt
+
 223: write something in a file called honor.txt
+
+cd medal
+echo "something" >> honor.txt
 
 224: output the sizes of the files in the directory
 
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession\sister> $file = '.\medal\'
+>> Write-Host((Get-Item $file).length/1KB)
+>> Write-Host((Get-Item $file).length/1MB)
+>> Write-Host((Get-Item $file).length/1GB)
+0.0009765625
+9.5367431640625E-07
+9.31322574615479E-10
+
 225: output the content of any file in the directory
+
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession\sister\medal> cat honor.txt
+something
 
 226: write something in a file called recommend.txt
 
+echo "something" >> recommend.txt
+
 227: output who the active user is
+
+PS C:\Users\Lenovo ThinkPad\Documents> $env:UserName
+Lenovo ThinkPad
 
 228: create a directory rider and move into the directory
 
+mkdir rider
+cd rider
+
 229: output the full path you are on
+
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession\sister\medal\rider>
 
 230: create a file called speculate.txt and rename it so that it's called sister.txt instead. Hint: This should be done in 2 commands
 
+ni speculate.txt
+Rename-Item speculate.txt -NewName "Sister.txt"
+
 231: open a file in the terminal and see the content
+
+start sister.txt
 
 232: echo 'sister cater architecture degree cater' into the file
 
+echo "sister cater architecture degree cater" >> sister.txt
+
 233: create a file called speculate.txt
+
+ni speculate.txt
 
 234: delete the last file you created
 
+rm speculate.txt
+
 235: output the sizes of the files in the directory
+
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession\sister\medal> $file = 'rider'
+>> Write-Host((Get-Item $file).length/1KB)
+>> Write-Host((Get-Item $file).length/1MB)
+>> Write-Host((Get-Item $file).length/1GB)
+0.0009765625
+9.5367431640625E-07
+9.31322574615479E-10
 
 236: output what's in the directory
 
+PS C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession\sister\medal\rider> ls
+
+
+    Directory: C:\Users\Lenovo ThinkPad\Documents\Exerciseset_3\recession\sister\medal\rider
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        24/02/2022     09:34             82 sister.txt
+
 237: create a file called proportion.txt
+
+ni proportion.txt
 
 238: create a file called surprise.txt
 
+ni surprise.txt
+
 239: create a directory evaluate and move into the directory
+
+mkdir evaluate
+cd evaluate
 
 240: delete the last folder you created
 
+rmdir evaluate
+
 241: create a file called stock.txt and rename it so that it's called support.txt instead. Hint: This should be done in 2 commands
+
+ni stock.txt
+Rename-Item stock.txt -NewName "support.txt"
 
 242: create a file called experienced.txt and rename it so that it's called bay.txt instead. Hint: This should be done in 2 commands
 
+ni experienced.txt
+Rename-Item experienced.txt -NewName "Bay.txt"
+
 243: create a file called proportion.txt
+
+ni proportion.txt
 
 244: open a file in the terminal and see the content
 
+start proportion.txt
+
 245: write something in a file called on.txt
+
+echo "something" >> on.txt
 
 246: delete the last file you created
 
+rm proportion.txt
+
 247: delete the last file you created
+
+rm bay.txt
 
 248: create two directories experienced and interference and move into interference
 
+mkdir experienced
+mkdir interference
+cd interfernce
+
 249: output the sizes of the files in the directory
 
+ls
+directory is empty
+
 250: create a file called surprise.txt and immediately delete it
+
+ni surprise.txt
+rm surprise.txt

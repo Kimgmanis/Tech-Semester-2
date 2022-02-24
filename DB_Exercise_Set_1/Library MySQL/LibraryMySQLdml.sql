@@ -31,3 +31,10 @@ WHERE cCPR = 0305393207 AND dLoan > '2014-01-01' AND dLoan < '2015-01-01';
 # 7. Modify the previous clause so that only those days where the member was loaned more than one book appear.
 SELECT * FROM library.tloan
 WHERE cCPR = 0305393207 AND dLoan > '2014-01-01' AND dLoan < '2015-01-01';
+
+SELECT cSignature FROM tloan
+WHERE cCPR ='0305393207' AND dLoan LIKE '2014-%' GROUP BY dLoan HAVING COUNT(*) > 1;
+
+SELECT * FROM library.tloan
+WHERE cCPR = 0305393207 AND dLoan LIKE '2014-%';
+
