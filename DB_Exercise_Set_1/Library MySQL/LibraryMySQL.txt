@@ -96,11 +96,30 @@ WHERE cCPR = 0305393207 AND dLoan > '2014-01-01' AND dLoan < '2015-01-01';
 
 7.	Modify the previous clause so that only those days where the member was loaned more than one book appear.
 
+SELECT dloan, COUNT(dloan) AS 'Number of Loans' FROM tloan
+WHERE cCPR = 0305393207 AND YEAR(dLoan) = 2014
+GROUP BY dloan
+HAVING COUNT(*) > 1;
+
+2014-12-13,2
+2014-12-30,2
+
 8.	Show all library members from the newest to the oldest. Those who became members on the same day will be sorted alphabetically (by surname and name) within that day.
+
+SELECT * FROM library.tmember ORDER BY dNewMember DESC, cSurname, cName;
 
 9.	Show the title of all books published by the publishing company with ID 32 along with their theme or themes.
 
+SELECT tbook.cTitle, ttheme.cName FROM tbook, tbooktheme, ttheme
+WHERE nPublishingCompanyID = 32;
+
 10.	Show the name and surname of every author along with the number of books authored by them, but only for authors who have registered books on the database.
+
+SELECT cName, cSurname, COUNT(t.nAuthorID) AS 'Books'
+FROM tauthor
+         LEFT JOIN tauthorship t on tauthor.nAuthorID = t.nAuthorID
+GROUP BY tauthor.nAuthorID
+ORDER BY COUNT(t.nAuthorID) DESC;
 
 11.	Show the name and surname of all the authors with published books along with the lowest publishing year for their books.
 
