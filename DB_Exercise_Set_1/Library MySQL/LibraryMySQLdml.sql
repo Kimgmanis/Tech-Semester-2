@@ -65,14 +65,21 @@ SELECT tbook.cTitle, ttheme.cName
 FROM tbook,
      tbooktheme,
      ttheme
-WHERE nPublishingCompanyID = 32;
+
+WHERE tbooktheme.nBookID = tbook.nBookID
+  AND ttheme.nThemeID = tbooktheme.nThemeID
+  AND nPublishingCompanyID = 32;
 
 # 10. Show the name and surname of every author along with the number of books authored by them, but only for authors who have registered books on the database.
-SELECT cName, cSurname, COUNT(t.nAuthorID) AS 'Books'
-FROM tauthor
-         LEFT JOIN tauthorship t on tauthor.nAuthorID = t.nAuthorID
-GROUP BY tauthor.nAuthorID
-ORDER BY COUNT(t.nAuthorID) DESC;
+SELECT tauthor.cName, tauthor.cSurname, COUNT(tauthorship.nBookID) AS 'Books'
+FROM tauthor,
+     tauthorship,
+     tbook
+WHERE tauthor.nAuthorID = tauthorship.nAuthorID
+  AND tbook.nBookID = tauthorship.nBookID;
+
+# Could not get it to work. Only displays one author and all the bookid's in one row.
+# I was attemping to link tauthor.nauthorid to tauthorship.nauthorid and vice versa to tbook and tauthorship. I am not sure what is the solution.
 
 # 11. Show the name and surname of all the authors with published books along with the lowest publishing year for their books.
 SELECT cName, cSurname, Min(tbook.nPublishingYear)
@@ -82,47 +89,95 @@ WHERE nBookID IS NOT NULL
 GROUP BY cName, cSurname;
 
 # 12. For each signature and loan date, show the title of the corresponding books and the name and surname of the member who had them loaned.
+
+SELECT tloan.*, tmember.cSurname, tmember.cName, tbook.cTitle
+FROM tloan,
+     tmember,
+     tbookcopy,
+     tbook;
+
+# 13. Repeat exercises 9 to 12 using the modern JOIN notation.
+
+# 9. Show the title of all books published by the publishing company with ID 32 along with their theme or themes.
+SELECT cTitle, cName
+FROM tbook
+         LEFT JOIN tbooktheme t on tbook.nBookID = t.nBookID
+         LEFT JOIN ttheme t2 on t.nThemeID = t2.nThemeID
+WHERE nPublishingCompanyID = 32;
+
+# 10. Show the name and surname of every author along with the number of books authored by them, but only for authors who have registered books on the database.
+SELECT cName, cSurname, COUNT(t.nBookID) AS 'Books'
+FROM tauthor
+         LEFT JOIN tauthorship t on tauthor.nAuthorID = t.nAuthorID
+GROUP BY tauthor.nAuthorID
+ORDER BY COUNT(t.nAuthorID) DESC;
+
+# 11. Show the name and surname of all the authors with published books along with the lowest publishing year for their books.
+SELECT cName, cSurname, Min(t2.nPublishingYear)
+FROM tauthor
+         LEFT JOIN tauthorship t on tauthor.nAuthorID = t.nAuthorID
+         LEFT JOIN tbook t2 on t.nBookID = t2.nBookID
+WHERE t2.nBookID IS NOT NULL
+GROUP BY cName, cSurname;
+
+# 12. For each signature and loan date, show the title of the corresponding books and the name and surname of the member who had them loaned.
 SELECT tloan.*, t.cSurname, t.cName, t3.cTitle
 FROM tloan
          LEFT JOIN tmember t on tloan.cCPR = t.cCPR
          LEFT JOIN tbookcopy t2 on tloan.cSignature = t2.cSignature
          LEFT JOIN tbook t3 on t2.nBookID = t3.nBookID;
 
-# 13. Repeat exercises 9 to 12 using the modern JOIN notation.
-
-# 9. Show the title of all books published by the publishing company with ID 32 along with their theme or themes.
-SELECT cTitle, cName FROM tbook
-LEFT JOIN tbooktheme t on tbook.nBookID = t.nBookID
-LEFT JOIN ttheme t2 on t.nThemeID = t2.nThemeID
-WHERE nPublishingCompanyID = 32;
-
-# 10. Show the name and surname of every author along with the number of books authored by them, but only for authors who have registered books on the database.
-
-# 11. Show the name and surname of all the authors with published books along with the lowest publishing year for their books.
-
-# 12. For each signature and loan date, show the title of the corresponding books and the name and surname of the member who had them loaned.
-
 # 14. Show all theme names along with the titles of their associated books. All themes must appear (even if there are no books for some particular themes). Sort by theme name.
-SELECT cName, cTitle From ttheme
-LEFT JOIN tbooktheme t on ttheme.nThemeID = t.nThemeID
-LEFT JOIN tbook t2 on t.nBookID = t2.nBookID
+SELECT cName, cTitle
+From ttheme
+         LEFT JOIN tbooktheme t on ttheme.nThemeID = t.nThemeID
+         LEFT JOIN tbook t2 on t.nBookID = t2.nBookID
 ORDER BY cName ASC;
 
 # 15. Show the name and surname of all members who joined the library in 2013 along with the title of the books they took on loan during that same year. All members must be shown, even if they did not take any book on loan during 2013. Sort by member surname and name.
-SELECT cSurname, cName, cTitle FROM tmember
-LEFT JOIN tloan t on tmember.cCPR = t.cCPR
-LEFT JOIN tbookcopy t2 on t.cSignature = t2.cSignature
-LEFT JOIN tbook t3 on t2.nBookID = t3.nBookID
+SELECT cSurname, cName, cTitle
+FROM tmember
+         LEFT JOIN tloan t on tmember.cCPR = t.cCPR
+         LEFT JOIN tbookcopy t2 on t.cSignature = t2.cSignature
+         LEFT JOIN tbook t3 on t2.nBookID = t3.nBookID
 WHERE YEAR(dNewMember) = 2013
 ORDER BY cSurname, cName;
 
 # 16. Show the name and surname of all authors along with their nationality or nationalities and the titles of their books. Every author must be shown, even though s/he has no registered books. Sort by author name and surname.
 
-SELECT cName, cSurname, t2.cName, t4.cTitle FROM tauthor
-LEFT JOIN tnationality t on tauthor.nAuthorID = t.nAuthorID
-LEFT JOIN tcountry t2 on t.nCountryID = t2.nCountryID
-LEFT JOIN tauthorship t3 on t.nAuthorID = t3.nAuthorID
-LEFT JOIN tbook t4 on t3.nBookID = t4.nBookID
-ORDER BY tauthor.cName, tauthor.cSurname;
+SELECT tauthor.cName, tauthor.cSurname, tcountry.cName, tbook.cTitle
+FROM tnationality,
+     tcountry,
+     tauthorship,
+     tauthor,
+     tbook
+WHERE tauthor.nAuthorID = tauthorship.nAuthorID
+  AND tauthorship.nAuthorID = tnationality.nAuthorID
+  AND tauthorship.nBookID = tbook.nBookID
+  AND tauthorship.nAuthorID = tnationality.nAuthorID
+  AND tnationality.nCountryID = tcountry.nCountryID;
 
 # 17. Show the title of those books which have had different editions published in both 1970 and 1989.
+
+SELECT tbook.cTitle
+FROM tbook
+WHERE nPublishingYear = 1970
+   OR nPublishingYear = 1989;
+# I didnt know how to distinguish between the editions of the books
+
+# 18. Show the surname and name of all members who joined the library in December 2013 followed by the surname and name of those authors whose name is “William”.
+
+SELECT dNewMember, tmember.cSurname, tmember.cName
+FROM tmember
+WHERE dNewMember >= '2013-12-01' AND cName REGEXP 'William'
+   OR cSurname REGEXP 'William';
+
+# 19. Show the name and surname of the first chronological member of the library using subqueries.
+SELECT cName, cSurname, dNewMember
+FROM tmember
+WHERE dNewMember IN (SELECT dNewMember FROM tmember)
+ORDER BY dNewMember ASC;
+
+# 20. For each publishing year, show the number of book titles published by publishing companies from countries that constitute the nationality for at least three authors. Use subqueries.
+
+
