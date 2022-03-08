@@ -179,5 +179,85 @@ WHERE dNewMember IN (SELECT dNewMember FROM tmember)
 ORDER BY dNewMember ASC;
 
 # 20. For each publishing year, show the number of book titles published by publishing companies from countries that constitute the nationality for at least three authors. Use subqueries.
+SELECT COUNT(tbook.cTitle) AS 'Number of book titles'
+FROM tbook,
+     tpublishingcompany,
+     tnationality,
+     tcountry,
+     tauthorship,
+     tauthor
+WHERE tbook.nBookID = tauthorship.nBookID
+  AND tauthorship.nAuthorID = tauthor.nAuthorID
+  AND tauthorship.nAuthorID = tnationality.nAuthorID
+  AND tnationality.nCountryID = tcountry.nCountryID
+  AND tbook.nPublishingCompanyID = tpublishingcompany.nPublishingCompanyID
+  AND tpublishingcompany.nCountryID = tcountry.nCountryID;
 
+# I was not able to find the appropriate subquery for this question
+
+# 21. Show the name and country of all publishing companies with the headings "Name" and "Country"
+SELECT tpublishingcompany.cName AS 'Name', tcountry.cName AS 'Country'
+FROM tpublishingcompany,
+     tcountry,
+     tnationality
+WHERE tpublishingcompany.nCountryID = tnationality.nCountryID
+  AND tnationality.nCountryID = tcountry.nCountryID;
+
+# 22. Show the titles of the books published between 1926 and 1978 that were not published by the publishing company with ID 32.
+SELECT tbook.cTitle
+FROM tbook
+WHERE nPublishingCompanyID != 32
+  AND nPublishingYear >= 1926
+  AND nPublishingYear <= 1978;
+
+# 23. Show the name and surname of the members who joined the library after 2016 and have no address.
+SELECT cName, cSurname, cAddress
+FROM tmember
+WHERE dNewMember >= 2016
+  AND cAddress IS NULL;
+
+# 24. Show the country codes for countries with publishing companies. Exclude repeated values.
+SELECT DISTINCT tcountry.nCountryID
+FROM tcountry
+         LEFT JOIN tpublishingcompany t on tcountry.nCountryID = t.nCountryID
+WHERE t.nPublishingCompanyID > 1
+
+# 25. Show the titles of books whose title starts by "The Tale" and that are not published by "Lynch Inc".
+SELECT * FROM tpublishingcompany
+WHERE cName REGEXP 'Lynch inc';
+# nPublishingCompanyID = 13
+
+SELECT tbook.cTitle
+FROM tbook
+WHERE nPublishingCompanyID != 13 AND cTitle LIKE 'The Tale%';
+
+# Could not figure out how to combine both statements
+
+# 26. Show the list of themes for which the publishing company "Lynch Inc" has published books, excluding repeated values.
+SELECT DISTINCT ttheme.cName
+FROM ttheme
+LEFT JOIN tbooktheme t on ttheme.nThemeID = t.nThemeID
+LEFT JOIN tbook t2 on t.nBookID = t2.nBookID
+WHERE nPublishingCompanyID = 13;
+
+# 27. Show the titles of those books which have never been loaned.
+SELECT tbook.cTitle
+FROM tbook, tbookcopy
+WHERE tbook.nBookID != tbookcopy.nBookID;
+
+# Im not sure if this is correct because when I do SELECT * FROM the book appear with all the same cSignature and nBookID
+
+# 28. For each publishing company, show its number of existing books under the heading "No. of Books".
+SELECT tpublishingcompany.cName AS 'Publishing company', COUNT(tbook.nPublishingCompanyID) AS 'No. of Books'
+FROM tpublishingcompany, tbook
+WHERE tbook.nPublishingCompanyID = tpublishingcompany.nPublishingCompanyID
+GROUP BY tpublishingcompany.cName;
+
+# 29. Show the number of members who took some book on a loan during 2013.
+SELECT COUNT(tmember.cCPR) AS 'number of members loan in 2013'
+FROM tmember, tloan
+WHERE tloan.cCPR = tmember.cCPR AND tloan.dLoan = '2013';
+
+
+# 30. For each book that has at least two authors, show its title and number of authors under the heading "No. of Authors".
 
