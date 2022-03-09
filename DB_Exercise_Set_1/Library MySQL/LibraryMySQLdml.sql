@@ -35,17 +35,13 @@ WHERE nPublishingYear = 2007
   AND nPublishingCompanyID = 32;
 
 # 6. For each day of the year 2014, show the number of books loaned by the member with CPR "0305393207";
-SELECT *
+SELECT COUNT(cCPR), dLoan
 FROM library.tloan
 WHERE cCPR = 0305393207
-  AND dLoan > '2014-01-01'
-  AND dLoan < '2015-01-01';
-# OR
-SELECT COUNT(*)
-FROM library.tloan
-WHERE cCPR = 0305393207
-  AND dLoan > '2014-01-01'
-  AND dLoan < '2015-01-01';
+  AND dLoan >= '2014-01-01'
+  AND dLoan < '2015-01-01'
+GROUP BY dLoan;
+
 
 # 7. Modify the previous clause so that only those days where the member was loaned more than one book appear.
 SELECT dloan, COUNT(dloan) AS 'Number of Loans'
@@ -71,12 +67,10 @@ WHERE tbooktheme.nBookID = tbook.nBookID
   AND nPublishingCompanyID = 32;
 
 # 10. Show the name and surname of every author along with the number of books authored by them, but only for authors who have registered books on the database.
-SELECT tauthor.cName, tauthor.cSurname, COUNT(tauthorship.nBookID) AS 'Books'
-FROM tauthor,
-     tauthorship,
-     tbook
-WHERE tauthor.nAuthorID = tauthorship.nAuthorID
-  AND tbook.nBookID = tauthorship.nBookID;
+SELECT tauthor.cName, tauthor.cSurname, COUNT(nBookID) AS 'Books'
+FROM tauthor
+         INNER JOIN tauthorship t on tauthor.nAuthorID = t.nAuthorID
+GROUP BY t.nAuthorID;
 
 # Could not get it to work. Only displays one author and all the bookid's in one row.
 # I was attemping to link tauthor.nauthorid to tauthorship.nauthorid and vice versa to tbook and tauthorship. I am not sure what is the solution.
@@ -145,17 +139,12 @@ ORDER BY cSurname, cName;
 
 # 16. Show the name and surname of all authors along with their nationality or nationalities and the titles of their books. Every author must be shown, even though s/he has no registered books. Sort by author name and surname.
 
-SELECT tauthor.cName, tauthor.cSurname, tcountry.cName, tbook.cTitle
-FROM tnationality,
-     tcountry,
-     tauthorship,
-     tauthor,
-     tbook
-WHERE tauthor.nAuthorID = tauthorship.nAuthorID
-  AND tauthorship.nAuthorID = tnationality.nAuthorID
-  AND tauthorship.nBookID = tbook.nBookID
-  AND tauthorship.nAuthorID = tnationality.nAuthorID
-  AND tnationality.nCountryID = tcountry.nCountryID;
+SELECT tauthor.cName, cSurname, t2.cName, t4.cTitle
+FROM tauthor
+         LEFT JOIN tnationality t on tauthor.nAuthorID = t.nAuthorID
+         LEFT JOIN tcountry t2 on t.nCountryID = t2.nCountryID
+         LEFT JOIN tauthorship t3 on t.nAuthorID = t3.nAuthorID
+         LEFT JOIN tbook t4 on t3.nBookID = t4.nBookID;
 
 # 17. Show the title of those books which have had different editions published in both 1970 and 1989.
 
@@ -220,44 +209,55 @@ WHERE dNewMember >= 2016
 SELECT DISTINCT tcountry.nCountryID
 FROM tcountry
          LEFT JOIN tpublishingcompany t on tcountry.nCountryID = t.nCountryID
-WHERE t.nPublishingCompanyID > 1
+WHERE t.nPublishingCompanyID > 1;
 
 # 25. Show the titles of books whose title starts by "The Tale" and that are not published by "Lynch Inc".
-SELECT * FROM tpublishingcompany
+SELECT *
+FROM tpublishingcompany
 WHERE cName REGEXP 'Lynch inc';
 # nPublishingCompanyID = 13
 
 SELECT tbook.cTitle
 FROM tbook
-WHERE nPublishingCompanyID != 13 AND cTitle LIKE 'The Tale%';
+WHERE nPublishingCompanyID != 13
+  AND cTitle LIKE 'The Tale%';
 
 # Could not figure out how to combine both statements
 
 # 26. Show the list of themes for which the publishing company "Lynch Inc" has published books, excluding repeated values.
 SELECT DISTINCT ttheme.cName
 FROM ttheme
-LEFT JOIN tbooktheme t on ttheme.nThemeID = t.nThemeID
-LEFT JOIN tbook t2 on t.nBookID = t2.nBookID
+         LEFT JOIN tbooktheme t on ttheme.nThemeID = t.nThemeID
+         LEFT JOIN tbook t2 on t.nBookID = t2.nBookID
 WHERE nPublishingCompanyID = 13;
 
 # 27. Show the titles of those books which have never been loaned.
 SELECT tbook.cTitle
-FROM tbook, tbookcopy
-WHERE tbook.nBookID != tbookcopy.nBookID;
-
-# Im not sure if this is correct because when I do SELECT * FROM the book appear with all the same cSignature and nBookID
+FROM tbook
+         LEFT JOIN tbookcopy t on tbook.nBookID = t.nBookID
+         LEFT JOIN tloan t2 on t.cSignature = t2.cSignature
+WHERE t2.dLoan IS NULL;
 
 # 28. For each publishing company, show its number of existing books under the heading "No. of Books".
 SELECT tpublishingcompany.cName AS 'Publishing company', COUNT(tbook.nPublishingCompanyID) AS 'No. of Books'
-FROM tpublishingcompany, tbook
+FROM tpublishingcompany,
+     tbook
 WHERE tbook.nPublishingCompanyID = tpublishingcompany.nPublishingCompanyID
 GROUP BY tpublishingcompany.cName;
 
 # 29. Show the number of members who took some book on a loan during 2013.
 SELECT COUNT(tmember.cCPR) AS 'number of members loan in 2013'
-FROM tmember, tloan
-WHERE tloan.cCPR = tmember.cCPR AND tloan.dLoan = '2013';
-
+FROM tmember,
+     tloan
+WHERE tloan.cCPR = tmember.cCPR
+  AND tloan.dLoan BETWEEN '2013-01-01' AND ' 2013-12-31';
 
 # 30. For each book that has at least two authors, show its title and number of authors under the heading "No. of Authors".
+SELECT cTitle, COUNT(cName) AS 'No. of Authors'
+FROM tauthor
+         LEFT JOIN tauthorship t on tauthor.nAuthorID = t.nAuthorID
+         LEFT JOIN tbook t2 on t.nBookID = t2.nBookID
+GROUP BY cTitle
+HAVING COUNT(cName) > 1;
+
 
