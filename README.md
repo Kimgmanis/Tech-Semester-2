@@ -16,3 +16,5 @@
 
 ## Neo4JTutorials
     Contains screenshots of completed courses
+
+this is for normal text
