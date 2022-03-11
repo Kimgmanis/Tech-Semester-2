@@ -15,3 +15,18 @@ FROM directors
 
 # Homework
 # Neo4j
+
+# TODO CREATE a SELECT QUERY that shows the title, year and name of the actors
+SELECT movies.title, movies.year, actors.firstname, actors.lastname
+FROM movies
+         JOIN movies_actors on movies.id = movies_actors.movie_id
+         JOIN actors on movies_actors.actor_id = actors.id;
+
+# TODO Create an insert statement in movies_prodcution_teams
+INSERT INTO movies_production_teams(movie_id, production_team_id) VALUES (3, 1);
+
+# Inserting into many-to-many relations
+INSERT INTO production_teams(team_name) VALUES ('A - Team');
+
+# TODO DELETE the relationship of production team A
+DELETE FROM production_teams WHERE id = 1;
