@@ -1,0 +1,38 @@
+List 6 relational databases.
+1. Oracle Database
+2. MySQL
+3. Microsoft SQL Server
+4. PostgreSQL
+5. IBM Ddb2
+6. Microsoft Access
+
+List at least 1 of each of the NoSQL categories.
+1. Column-family
+2. Graph
+3. Document
+4. Key-Value
+
+List 2 in-memory databases.
+1. TerminusDB
+2. Apache Ignite
+
+Relational databases
+ vs.
+-------------------------
+NoSQL databases:
+- Key-Value Stores
+Data is stored in key/pairs as a hashtable where every key is unique.
+- Document Databases
+Stores and retrieves data as a key value pair. The value is stored as a document in JSON or XML formats.
+- Columnar Databases
+Work with columns and are based on BigTable paper. Each column is identified separately. Single column values are stored contiguously.
+Delivers high performance and widely used to managed data warehouses.
+- Graph Databases
+A graph type database stores entities and the relations amongst the entities. The entity is stored in a nodes. The relationship is stored as an edge that gives a relationship between the nodes.
+Compared to relational databases. a Graph database is multi-relational. Traversing relationship is fast and captured into the DB.
+
+Other considerations:
+- In-memory databases vs. persistent
+In-memory databases stores only data in the main memory of the system.
+Persistent databases store data in persistent media fx the hard drive.
+In-memory databases are known to be faster than persistent memory.
