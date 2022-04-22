@@ -20,4 +20,10 @@
 ## Namedrop databases
     Contains text file
 
+## 5._Number_Systems
+    Contains decimal to binary converter && binary to decimal converter
+    Unicode character database
+
+## 6._KEA_Shop
+
 this is for normal text
